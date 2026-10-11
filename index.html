@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salong Linnea – Frisör i Göteborg</title>
+<meta name="description" content="Salong Linnea är en personlig frisörsalong i Göteborg. Klippning, färg och styling för dam och herr. Boka tid online eller ring oss.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf6f1;
+    --surface: #ffffff;
+    --ink: #2a2320;
+    --muted: #6f635c;
+    --accent: #b5654a;
+    --accent-dark: #8f4a34;
+    --sand: #ecdfd2;
+    --line: #e4d8cc;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; line-height: 1.15; margin: 0; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* Sidhuvud */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(250, 246, 241, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-family: Fraunces, Georgia, serif; font-size: 1.35rem; font-weight: 600; text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+  .nav-links a:hover { color: var(--accent); }
+  .btn {
+    display: inline-block;
+    background: var(--accent); color: #fff !important;
+    padding: 12px 22px; border-radius: 999px;
+    font-weight: 600; text-decoration: none; border: 0; cursor: pointer;
+    font-size: 1rem; font-family: inherit;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: var(--accent-dark); }
+  .btn.ghost { background: transparent; color: var(--ink) !important; border: 1.5px solid var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: #fff !important; }
+
+  /* Hero */
+  .hero { padding: 72px 0 64px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(2.3rem, 5.5vw, 3.7rem); }
+  .hero p { font-size: 1.12rem; color: var(--muted); max-width: 46ch; margin: 20px 0 30px; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-art {
+    aspect-ratio: 4 / 5; border-radius: 200px 200px var(--radius) var(--radius);
+    background:
+      radial-gradient(circle at 30% 25%, rgba(255,255,255,0.55), transparent 45%),
+      linear-gradient(160deg, #d9a48c 0%, #b5654a 55%, #6d3a2a 100%);
+    display: grid; place-items: center;
+  }
+  .hero-art svg { width: 46%; opacity: 0.92; }
+  .trust { display: flex; gap: 28px; margin-top: 36px; flex-wrap: wrap; }
+  .trust div { font-size: 0.92rem; color: var(--muted); }
+  .trust strong { display: block; font-family: Fraunces, Georgia, serif; font-size: 1.5rem; color: var(--ink); }
+
+  /* Sektioner */
+  section { padding: 72px 0; }
+  .section-head { max-width: 56ch; margin-bottom: 36px; }
+  .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); }
+  .section-head p { color: var(--muted); margin: 12px 0 0; }
+  .alt { background: var(--sand); }
+
+  /* Tjänster */
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+  .card h3 { font-size: 1.3rem; margin-bottom: 14px; }
+  .price-list { list-style: none; margin: 0; padding: 0; }
+  .price-list li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px dashed var(--line); font-size: 0.97rem; }
+  .price-list li:last-child { border-bottom: 0; }
+  .price-list span:last-child { font-weight: 600; white-space: nowrap; }
+
+  /* Om oss */
+  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about p { color: var(--muted); }
+  .quote { background: var(--surface); border-radius: var(--radius); padding: 30px; border-left: 4px solid var(--accent); }
+  .quote p { font-family: Fraunces, Georgia, serif; font-size: 1.25rem; color: var(--ink); margin: 0 0 12px; }
+  .quote cite { font-style: normal; font-size: 0.9rem; color: var(--muted); }
+  .stars { color: var(--accent); letter-spacing: 3px; margin-bottom: 10px; }
+
+  /* Kontakt */
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .hours { width: 100%; border-collapse: collapse; }
+  .hours td { padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .hours td:last-child { text-align: right; font-weight: 500; }
+  .hours tr:last-child td { border-bottom: 0; }
+  .contact-row { margin: 0 0 14px; }
+  .contact-row small { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.72rem; color: var(--muted); font-weight: 600; }
+  .contact-row a { text-decoration: none; font-weight: 500; }
+  .contact-row a:hover { color: var(--accent); }
+
+  footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+  @media (max-width: 800px) {
+    .nav-links a:not(.btn) { display: none; }
+    .hero { padding: 44px 0; }
+    .hero-grid, .about, .contact { grid-template-columns: 1fr; }
+    .hero-art { max-width: 320px; margin: 0 auto; width: 100%; }
+    .services { grid-template-columns: 1fr; }
+    section { padding: 52px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Salong <span>Linnea</span></a>
+    <nav class="nav-links">
+      <a href="#tjanster">Tjänster</a>
+      <a href="#om">Om oss</a>
+      <a href="#kontakt">Hitta hit</a>
+      <a class="btn" href="#kontakt">Boka tid</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Frisör i Majorna, Göteborg</div>
+        <h1>Hår du trivs i – varje dag.</h1>
+        <p>En liten salong där vi tar oss tid. Klippning, färg och styling för dam och herr, med rådgivning som utgår från ditt hår och din vardag.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#kontakt">Boka tid</a>
+          <a class="btn ghost" href="#tjanster">Se priser</a>
+        </div>
+        <div class="trust">
+          <div><strong>12 år</strong>i Majorna</div>
+          <div><strong>4,9 / 5</strong>snittbetyg från kunder</div>
+          <div><strong>3</strong>utbildade frisörer</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="16" cy="46" r="8"/>
+          <circle cx="48" cy="46" r="8"/>
+          <path d="M21 40 46 6"/>
+          <path d="M43 40 18 6"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <section id="tjanster" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Tjänster och priser</h2>
+        <p>Alla behandlingar börjar med en kort konsultation. Osäker på vad du behöver? Ring så hjälper vi dig att välja.</p>
+      </div>
+      <div class="services">
+        <div class="card">
+          <h3>Klippning</h3>
+          <ul class="price-list">
+            <li><span>Damklippning</span><span>650 kr</span></li>
+            <li><span>Herrklippning</span><span>450 kr</span></li>
+            <li><span>Barn (upp till 12 år)</span><span>350 kr</span></li>
+            <li><span>Lugg / putsning</span><span>150 kr</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Färg</h3>
+          <ul class="price-list">
+            <li><span>Helfärg</span><span>från 1 150 kr</span></li>
+            <li><span>Slingor</span><span>från 1 450 kr</span></li>
+            <li><span>Balayage</span><span>från 1 950 kr</span></li>
+            <li><span>Toning</span><span>från 750 kr</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Styling och vård</h3>
+          <ul class="price-list">
+            <li><span>Tvätt och fön</span><span>450 kr</span></li>
+            <li><span>Uppsättning</span><span>från 850 kr</span></li>
+            <li><span>Bröllopshår med prov</span><span>2 200 kr</span></li>
+            <li><span>Inpackning</span><span>300 kr</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="om">
+    <div class="wrap about">
+      <div>
+        <div class="section-head">
+          <h2>En salong där du blir sedd</h2>
+        </div>
+        <p>Linnea öppnade salongen 2014 med en enkel idé: ingen ska behöva känna sig stressad i frisörstolen. Därför bokar vi lite längre tider än de flesta, och du träffar samma frisör varje gång om du vill.</p>
+        <p>Vi arbetar med skonsamma, svanenmärkta produkter och håller oss uppdaterade med nya tekniker genom utbildning varje år.</p>
+      </div>
+      <div class="quote">
+        <div class="stars" aria-label="5 av 5 stjärnor">★★★★★</div>
+        <p>”Första gången på flera år som jag gått från frisören och fått precis det jag bad om.”</p>
+        <cite>– Sara, kund sedan 2019</cite>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Boka tid och hitta hit</h2>
+        <p>Enklast bokar du genom att ringa eller mejla. Vi svarar samma dag under öppettiderna.</p>
+      </div>
+      <div class="contact">
+        <div class="card">
+          <h3>Kontakt</h3>
+          <p class="contact-row"><small>Telefon</small><a href="tel:+46310000000">031-000 00 00</a></p>
+          <p class="contact-row"><small>E-post</small><a href="mailto:hej@salonglinnea.example">hej@salonglinnea.example</a></p>
+          <p class="contact-row"><small>Adress</small>Exempelgatan 12, 414 00 Göteborg</p>
+          <a class="btn" href="tel:+46310000000">Ring och boka</a>
+        </div>
+        <div class="card">
+          <h3>Öppettider</h3>
+          <table class="hours">
+            <tr><td>Måndag–torsdag</td><td>09–18</td></tr>
+            <tr><td>Fredag</td><td>09–17</td></tr>
+            <tr><td>Lördag</td><td>10–15</td></tr>
+            <tr><td>Söndag</td><td>Stängt</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Salong Linnea</span>
+    <span>Demosida – företaget och alla uppgifter är påhittade.</span>
+  </div>
+</footer>
+
+</body>
+</html>
